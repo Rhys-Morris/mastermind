@@ -58,7 +58,26 @@ class Mastermind
         check_guess(@guess)
     end
 
-    private 
+    private
+
+    def print_colors(array)
+        for value in array do
+            case value
+            when "r"
+                print "#{@@r} "
+            when "b"
+                print "#{@@b} "
+            when "y"
+                print "#{@@y} "
+            when "g"
+                print "#{@@g} "
+            when "c"
+                print "#{@@c} "
+            when "w"
+                print "#{@@w} "
+            end
+        end
+    end
 
     def check_guess(guess)
         puts "\n------ Checking ------"
@@ -82,22 +101,7 @@ class Mastermind
             j = j + 1
         end
         puts "Turn: #{@turn_count} --> You selected "
-        for value in guess do
-            case value
-            when "r"
-                print "#{@@r} "
-            when "b"
-                print "#{@@b} "
-            when "y"
-                print "#{@@y} "
-            when "g"
-                print "#{@@g} "
-            when "c"
-                print "#{@@c} "
-            when "w"
-                print "#{@@w} "
-            end
-        end
+        print_colors(guess)
         puts "\n#{correct_colors} of 5 correct colors"
         puts "#{correct_places} of 5 correct places"
 
@@ -113,22 +117,7 @@ class Mastermind
         if @turn_count == MAX_TURNS
             puts "\nNo more guesses remain.\nThe Mastermind is victorious!"
             puts "The correct solution was: "
-            for value in @colors do
-                case value
-                when "r"
-                    print "#{@@r} "
-                when "b"
-                    print "#{@@b} "
-                when "y"
-                    print "#{@@y} "
-                when "g"
-                    print "#{@@g} "
-                when "c"
-                    print "#{@@c} "
-                when "w"
-                    print "#{@@w} "
-                end
-            end
+            print_colors(@colors)
             puts ""
             return
         end
@@ -137,7 +126,6 @@ end
 
 new_game = Mastermind.new
 puts new_game.explain_turn
-puts new_game.turn_count
 
 while new_game.turn_count < 10
     new_game.take_turn
