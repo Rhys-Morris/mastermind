@@ -2,7 +2,7 @@ require 'colorize'
 
 # WELCOME MESSAGE
 puts "\nWelcome to Mastermind! A game where you attempt to break a code.
-The mastermind will select a sequence of five colors from a choice of red, blue, yellow, green, orange and purple.
+The mastermind will select a sequence of five colors from a choice of red, blue, yellow, green, cyan and white.
 You must attempt to guess the correct sequence of colors within 10 turns, or the mastermind wins.
 Good luck!\n"
 
